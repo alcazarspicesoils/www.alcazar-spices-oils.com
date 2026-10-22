@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ألكازار للتوابل الملكية والزيوت الطبيعية | ALCAZAR Spices & Oils</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cairo & Amiri & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;800;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        alcazar: {
+                            green: '#0F4C3A',
+                            darkgreen: '#073024',
+                            lightgreen: '#145C47',
+                            gold: '#D4AF37',
+                            lightgold: '#F3E5AB',
+                            darkgold: '#AA820A',
+                            burgundy: '#800020',
+                            lightburgundy: '#A52A4A',
+                            cream: '#FDFBF7',
+                            sand: '#F5EFE6'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        amiri: ['Amiri', 'serif'],
+                        montserrat: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', 'Montserrat', sans-serif;
+            background-color: #FDFBF7;
+            color: #1F2937;
+        }
+        
+        .bg-pattern {
+            background-color: #0F4C3A;
+            background-image: radial-gradient(#D4AF37 0.75px, transparent 0.75px), radial-gradient(#D4AF37 0.75px, #0F4C3A 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.98;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFE259 0%, #FFA751 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-button {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA820A 100%);
+            color: #073024;
+            transition: all 0.3s ease;
+        }
+
+        .gold-button:hover {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 100%);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #073024;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+
+        @keyframes pulse-gold {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.85; }
+        }
+        .pulse-gold {
+            animation: pulse-gold 2s infinite;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-alcazar-gold selection:text-alcazar-darkgreen min-h-screen flex flex-col justify-between">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-alcazar-darkgreen text-alcazar-lightgold text-xs sm:text-sm py-2 px-4 border-b border-alcazar-gold/30">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="hidden md:flex items-center space-x-4 rtl:space-x-reverse text-xs">
+                <span><i class="fa-solid fa-crown text-alcazar-gold mx-1"></i> <span data-i18n="topBarCraft">الجودة الملكية والحرفية الأصيلة</span></span>
+                <span><i class="fa-solid fa-leaf text-alcazar-gold mx-1"></i> <span data-i18n="topBarNatural">منتجات 100% طبيعية</span></span>
+            </div>
+            
+            <div class="w-full md:w-auto text-center font-bold">
+                <span data-i18n="topBarDelivery">🚚 التوصيل متوفر محلياً ودولياً عبر دول البحر المتوسط | للطلب المباشر:</span>
+                <a href="https://wa.me/213699908979" target="_blank" class="text-white hover:text-alcazar-gold underline dir-ltr inline-block mx-1">
+                    +213 699 90 89 79
+                </a>
+            </div>
+
+            <!-- Language Switcher Bar -->
+            <div class="flex items-center space-x-2 rtl:space-x-reverse text-xs">
+                <i class="fa-solid fa-globe text-alcazar-gold text-sm"></i>
+                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-alcazar-green text-white text-xs font-bold rounded py-1 px-2 border border-alcazar-gold cursor-pointer focus:outline-none">
+                    <option value="ar">العربية (AR)</option>
+                    <option value="fr">Français (FR)</option>
+                    <option value="en">English (EN)</option>
+                    <option value="es">Español (ES)</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-alcazar-green text-white shadow-xl border-b-2 border-alcazar-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand / Logo -->
+                <div class="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer" onclick="scrollToSection('hero')">
+                    <!-- SVG Visual Identity Emblem inspired by Logo -->
+                    <div class="relative w-12 h-12 rounded-full border-2 border-alcazar-gold bg-alcazar-darkgreen flex items-center justify-center shadow-lg">
+                        <svg viewBox="0 0 100 100" class="w-full h-full p-1">
+                            <circle cx="50" cy="50" r="46" stroke="#D4AF37" stroke-width="2" fill="none" />
+                            <circle cx="50" cy="50" r="41" stroke="#800020" stroke-width="1.5" fill="none" />
+                            <g stroke="#800020" stroke-width="2.5" fill="none">
+                                <rect x="25" y="25" width="50" height="50" rx="2" transform="rotate(0 50 50)" />
+                                <rect x="25" y="25" width="50" height="50" rx="2" transform="rotate(45 50 50)" />
+                            </g>
+                            <circle cx="50" cy="50" r="12" fill="#D4AF37" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="font-amiri font-bold text-xl sm:text-2xl text-alcazar-lightgold leading-tight">
+                            ألكازار <span class="text-white text-base font-normal">ALCAZAR</span>
+                        </h1>
+                        <p class="text-xs text-alcazar-gold/90 font-light" data-i18n="brandSubtitle">للتوابل الملكية والزيوت الطبيعية</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-6 rtl:space-x-reverse font-semibold text-sm">
+                    <a href="#hero" class="hover:text-alcazar-gold transition py-1 border-b-2 border-transparent hover:border-alcazar-gold" data-i18n="navHome">الرئيسية</a>
+                    <a href="#products" class="hover:text-alcazar-gold transition py-1 border-b-2 border-transparent hover:border-alcazar-gold" data-i18n="navProducts">الكتالوج والمنتجات</a>
+                    <a href="#about" class="hover:text-alcazar-gold transition py-1 border-b-2 border-transparent hover:border-alcazar-gold" data-i18n="navAbout">عن الحرفية والمؤسسة</a>
+                    <a href="#contact" class="hover:text-alcazar-gold transition py-1 border-b-2 border-transparent hover:border-alcazar-gold" data-i18n="navContact">تواصل معنا</a>
+                </nav>
+
+                <!-- Actions: Cart & WhatsApp -->
+                <div class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <!-- Cart Button -->
+                    <button onclick="toggleCartModal()" class="relative bg-alcazar-darkgreen hover:bg-alcazar-lightgreen text-alcazar-gold p-2.5 rounded-xl border border-alcazar-gold/50 transition flex items-center justify-center">
+                        <i class="fa-solid fa-basket-shopping text-xl"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-alcazar-burgundy text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center border border-alcazar-gold">0</span>
+                    </button>
+
+                    <!-- Direct Order WhatsApp -->
+                    <a href="https://wa.me/213699908979" target="_blank" class="hidden sm:flex gold-button font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl items-center shadow-md">
+                        <i class="fa-brands fa-whatsapp text-lg mx-1"></i>
+                        <span data-i18n="btnDirectWhatsApp">طلب سريع عبر الواتساب</span>
+                    </a>
+
+                    <!-- Mobile Menu Toggle Button -->
+                    <button onclick="toggleMobileMenu()" class="lg:hidden text-alcazar-gold hover:text-white text-2xl p-1 focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-alcazar-darkgreen border-t border-alcazar-gold/30 px-4 pt-3 pb-6 space-y-3">
+            <a href="#hero" onclick="toggleMobileMenu()" class="block text-white hover:text-alcazar-gold py-2 border-b border-gray-700" data-i18n="navHome">الرئيسية</a>
+            <a href="#products" onclick="toggleMobileMenu()" class="block text-white hover:text-alcazar-gold py-2 border-b border-gray-700" data-i18n="navProducts">الكتالوج والمنتجات</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-white hover:text-alcazar-gold py-2 border-b border-gray-700" data-i18n="navAbout">عن الحرفية والمؤسسة</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block text-white hover:text-alcazar-gold py-2" data-i18n="navContact">تواصل معنا</a>
+            <div class="pt-2">
+                <a href="https://wa.me/213699908979" target="_blank" class="w-full gold-button font-bold py-3 rounded-xl flex items-center justify-center text-center">
+                    <i class="fa-brands fa-whatsapp text-xl mx-2"></i>
+                    <span data-i18n="btnDirectWhatsApp">واتساب بيزنس</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative bg-pattern text-white py-16 lg:py-24 overflow-hidden border-b-4 border-alcazar-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Text Content -->
+                <div class="lg:col-span-7 text-center ltr:lg:text-left rtl:lg:text-right space-y-6">
+                    <div class="inline-flex items-center bg-alcazar-burgundy/80 text-alcazar-lightgold px-4 py-1.5 rounded-full border border-alcazar-gold text-xs sm:text-sm font-semibold shadow-inner">
+                        <i class="fa-solid fa-certificate text-alcazar-gold mx-2"></i>
+                        <span data-i18n="heroBadge">إنتاج وتجهيز وتعليب حرفي فاخر ذات طابع ملكي</span>
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-amiri font-bold text-white leading-tight">
+                        <span data-i18n="heroTitle">مؤسسة ألكازار</span> 
+                        <span class="gold-gradient-text block sm:inline" data-i18n="heroTitleSpan">للتوابل الملكية والزيوت الطبيعية</span>
+                    </h1>
+                    
+                    <p class="text-alcazar-lightgold text-base sm:text-lg max-w-2xl font-light leading-relaxed mx-auto lg:mx-0" data-i18n="heroDesc">
+                        بإشراف الأستاذ بوفاتح إبراهيم. نجمع بين أصالة التراث الأندلسي المغاربي والنقاء الطبيعي الخالص. نقدم لكم أجود التوابل الملكية المنتقاة بعناية والزيوت المعصورة على البارد لأغراض غذائية وتجميلية وطبية موجهة لزبائننا في دول حوض البحر الأبيض المتوسط والعالم.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center ltr:lg:justify-start rtl:lg:justify-start gap-4 pt-4">
+                        <a href="#products" class="w-full sm:w-auto gold-button text-center px-8 py-4 rounded-xl font-bold text-base shadow-xl flex items-center justify-center">
+                            <i class="fa-solid fa-store mx-2"></i>
+                            <span data-i18n="heroBtnExplore">استكشف المنتجات الملكية</span>
+                        </a>
+                        <a href="https://wa.me/213699908979" target="_blank" class="w-full sm:w-auto bg-transparent border-2 border-alcazar-gold text-alcazar-lightgold hover:bg-alcazar-gold hover:text-alcazar-darkgreen px-8 py-4 rounded-xl font-bold text-base transition flex items-center justify-center">
+                            <i class="fa-brands fa-whatsapp text-xl mx-2 text-green-400"></i>
+                            <span data-i18n="heroBtnWhatsApp">واتساب المبيعات المباشر</span>
+                        </a>
+                    </div>
+
+                    <!-- Highlights Badges -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-alcazar-gold/30 text-center">
+                        <div class="p-2">
+                            <i class="fa-solid fa-mortar-pestle text-2xl text-alcazar-gold mb-1"></i>
+                            <p class="text-xs text-slate-200 font-semibold" data-i18n="badgePestle">طحن وتجهيز حرفي</p>
+                        </div>
+                        <div class="p-2">
+                            <i class="fa-solid fa-droplet text-2xl text-alcazar-gold mb-1"></i>
+                            <p class="text-xs text-slate-200 font-semibold" data-i18n="badgeCold">عصر على البارد 100%</p>
+                        </div>
+                        <div class="p-2">
+                            <i class="fa-solid fa-box-archive text-2xl text-alcazar-gold mb-1"></i>
+                            <p class="text-xs text-slate-200 font-semibold" data-i18n="badgePackage">تعليب فاخر محكم</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Emblem & Brand Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-72 h-72 sm:w-96 sm:h-96 rounded-full border-4 border-alcazar-gold bg-gradient-to-br from-alcazar-darkgreen to-alcazar-green p-4 shadow-2xl flex items-center justify-center">
+                        <div class="w-full h-full rounded-full bg-alcazar-green border-2 border-alcazar-gold flex flex-col items-center justify-center p-6 text-center shadow-inner relative overflow-hidden">
+                            <svg class="absolute w-full h-full opacity-20 pointer-events-none" viewBox="0 0 100 100">
+                                <polygon points="50,0 65,35 100,50 65,65 50,100 35,65 0,50 35,35" fill="#800020" />
+                                <polygon points="50,0 65,35 100,50 65,65 50,100 35,65 0,50 35,35" fill="#D4AF37" transform="rotate(45 50 50)" />
+                            </svg>
+
+                            <div class="w-20 h-20 rounded-full border-2 border-alcazar-gold bg-alcazar-burgundy flex items-center justify-center mb-3 shadow-lg z-10">
+                                <i class="fa-solid fa-crown text-3xl text-alcazar-gold"></i>
+                            </div>
+                            <h2 class="font-amiri text-2xl font-bold text-alcazar-lightgold z-10">ALCAZAR</h2>
+                            <p class="text-xs text-slate-200 mt-1 z-10 font-bold" data-i18n="brandCardSubtitle">التوابل الملكية والزيوت الطبيعية</p>
+                            <span class="inline-block mt-3 bg-alcazar-gold text-alcazar-darkgreen text-xs font-black px-3 py-1 rounded-full z-10" data-i18n="brandCardTag">
+                                طابع حرفي رفيع
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Catalog Section -->
+    <section id="products" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center space-y-3 mb-12">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-alcazar-burgundy" data-i18n="catSubtitle">كتالوج المنتجات الحرفية</h2>
+            <h3 class="text-3xl sm:text-4xl font-amiri font-bold text-alcazar-green" data-i18n="catTitle">مجموعاتنا الملكية المميزة</h3>
+            <div class="w-24 h-1 bg-alcazar-gold mx-auto rounded-full"></div>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10">
+            <button onclick="filterCategory('all')" id="tab-all" class="cat-btn bg-alcazar-green text-white border border-alcazar-gold px-5 py-2.5 rounded-xl text-sm font-bold shadow transition">
+                <span data-i18n="filterAll">جميع المنتجات</span>
+            </button>
+            <button onclick="filterCategory('spices')" id="tab-spices" class="cat-btn bg-white text-gray-700 hover:bg-alcazar-sand border border-gray-300 px-5 py-2.5 rounded-xl text-sm font-bold transition">
+                <i class="fa-solid fa-pepper-hot text-alcazar-burgundy mx-1"></i> <span data-i18n="filterSpices">التوابل الملكية</span>
+            </button>
+            <button onclick="filterCategory('oils')" id="tab-oils" class="cat-btn bg-white text-gray-700 hover:bg-alcazar-sand border border-gray-300 px-5 py-2.5 rounded-xl text-sm font-bold transition">
+                <i class="fa-solid fa-bottle-droplet text-alcazar-green mx-1"></i> <span data-i18n="filterOils">الزيوت الطبيعية والطبية</span>
+            </button>
+            <button onclick="filterCategory('mixes')" id="tab-mixes" class="cat-btn bg-white text-gray-700 hover:bg-alcazar-sand border border-gray-300 px-5 py-2.5 rounded-xl text-sm font-bold transition">
+                <i class="fa-solid fa-wand-magic-sparkles text-alcazar-gold mx-1"></i> <span data-i18n="filterMixes">الخلطات الحرفية الخاصة</span>
+            </button>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Dynamic Injection -->
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section id="about" class="bg-alcazar-sand py-16 border-y border-alcazar-gold/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6">
+                    <span class="bg-alcazar-gold/20 text-alcazar-darkgold text-xs font-extrabold px-3 py-1 rounded-full border border-alcazar-gold/40" data-i18n="aboutTag">
+                        أصالة الحرفة الجزائرية والمتوسطية
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-amiri font-bold text-alcazar-darkgreen" data-i18n="aboutTitle">
+                        سر الجودة الملكية في مؤسسة ألكازار
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed text-base" data-i18n="aboutDesc">
+                        تأسست مؤسسة ألكازار على يد الأستاذ بوفاتح إبراهيم لتكون الرائدة في إنتاج وتجهيز وتعبئة التوابل الفاخرة والزيوت المستخلصة بطرق حرفية تقليدية دون أي ألوان صناعية أو مواد حافظة.
+                    </p>
+                    
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-4 rtl:space-x-reverse">
+                            <div class="w-10 h-10 rounded-lg bg-alcazar-green text-alcazar-gold flex items-center justify-center font-bold text-lg shrink-0 shadow">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-alcazar-darkgreen" data-i18n="feat1Title">نقاء طبيعي 100%</h4>
+                                <p class="text-sm text-gray-600" data-i18n="feat1Desc">نضمن لكم أعشاباً وزيوتاً طبية ناتجة عن معايير صارمة في الانتقاء والعصر الميكانيكي البارد.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 rtl:space-x-reverse">
+                            <div class="w-10 h-10 rounded-lg bg-alcazar-burgundy text-white flex items-center justify-center font-bold text-lg shrink-0 shadow">
+                                <i class="fa-solid fa-gem"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-alcazar-darkgreen" data-i18n="feat2Title">خلطات سرية ملكية</h4>
+                                <p class="text-sm text-gray-600" data-i18n="feat2Desc">توابل محضرة بأنسب نسب الأعشاب العطرية التي تمنح أطباقكم نكهة أندلسية فريدة.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 rtl:space-x-reverse">
+                            <div class="w-10 h-10 rounded-lg bg-alcazar-gold text-alcazar-darkgreen flex items-center justify-center font-bold text-lg shrink-0 shadow">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-alcazar-darkgreen" data-i18n="feat3Title">توصيل موثوق عبر البحر المتوسط</h4>
+                                <p class="text-sm text-gray-600" data-i18n="feat3Desc">نصلكم أينما كنتم مع إمكانية الطلب والمتابعة المباشرة عبر الواتساب بيزنس.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Showcase Frame -->
+                <div class="relative flex justify-center">
+                    <div class="w-full max-w-md bg-white p-6 rounded-2xl border-2 border-alcazar-gold shadow-2xl relative">
+                        <div class="absolute -top-4 ltr:right-4 rtl:left-4 bg-alcazar-burgundy text-white text-xs font-bold px-4 py-2 rounded-full border border-alcazar-gold shadow-md">
+                            <span data-i18n="ownerTitle">إشراف: أ. بوفاتح إبراهيم</span>
+                        </div>
+
+                        <div class="text-center p-6 bg-alcazar-green rounded-xl text-white mb-6">
+                            <i class="fa-solid fa-quote-right text-3xl text-alcazar-gold opacity-50 mb-2"></i>
+                            <p class="font-amiri text-lg italic leading-relaxed text-alcazar-lightgold" data-i18n="quoteText">
+                                "نحرص في ألكازار على تقديم منتجات صحية فاخرة تعكس ذوق العائلات الرفيع وتلبي الاحتياجات التجميلية والطبية بأعلى مقاييس الحرفية."
+                            </p>
+                        </div>
+
+                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 text-center">
+                            <p class="text-xs text-gray-500 font-bold mb-2" data-i18n="quoteSub">هل لديك طلب خاص أو شحنات بالجملة؟</p>
+                            <a href="https://wa.me/213699908979" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg text-sm flex items-center justify-center transition shadow">
+                                <i class="fa-brands fa-whatsapp text-lg mx-2"></i>
+                                <span data-i18n="quoteWhatsAppBtn">مراسلة إدارة ألكازار مباشرة</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media & Contact Section -->
+    <section id="contact" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-alcazar-green rounded-3xl text-white p-8 sm:p-12 shadow-2xl border-2 border-alcazar-gold relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-pattern pointer-events-none"></div>
+
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4 text-center ltr:lg:text-left rtl:lg:text-right">
+                    <h2 class="text-3xl font-amiri font-bold text-alcazar-lightgold" data-i18n="contactTitle">
+                        تواصل معنا وتابع جديد مؤسسة ألكازار
+                    </h2>
+                    <p class="text-slate-200 text-sm max-w-lg" data-i18n="contactDesc">
+                        نحن سعداء بخدمتكم في أي وقت. يمكنك التواصل المباشر عبر الهاتف، الواتساب بيزنس، أو متابعتنا عبر شبكات التواصل الاجتماعي.
+                    </p>
+                    
+                    <div class="pt-4 space-y-3 font-semibold text-sm">
+                        <div class="flex items-center justify-center ltr:lg:justify-start rtl:lg:justify-start space-x-3 rtl:space-x-reverse text-alcazar-lightgold">
+                            <i class="fa-brands fa-whatsapp text-xl text-green-400 mx-1"></i>
+                            <span><span data-i18n="contactWA">واتساب بيزنس:</span> <a href="https://wa.me/213699908979" target="_blank" class="underline dir-ltr inline-block hover:text-white">+213 699 90 89 79</a></span>
+                        </div>
+                        <div class="flex items-center justify-center ltr:lg:justify-start rtl:lg:justify-start space-x-3 rtl:space-x-reverse text-alcazar-lightgold">
+                            <i class="fa-solid fa-user-tie text-xl text-alcazar-gold mx-1"></i>
+                            <span><span data-i18n="contactManager">المدير المسؤول:</span> أ. بوفاتح إبراهيم (Boufateh Brahim)</span>
+                        </div>
+                        <div class="flex items-center justify-center ltr:lg:justify-start rtl:lg:justify-start space-x-3 rtl:space-x-reverse text-alcazar-lightgold">
+                            <i class="fa-solid fa-earth-mediterranean text-xl text-alcazar-gold mx-1"></i>
+                            <span data-i18n="contactLoc">الجزائر - الشحن متوفر لدول حوض البحر الأبيض المتوسط</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="bg-alcazar-darkgreen/80 p-6 rounded-2xl border border-alcazar-gold/40 text-center space-y-6">
+                    <h3 class="text-lg font-bold text-alcazar-gold" data-i18n="socialTitle">روابط شبكات التواصل الاجتماعي</h3>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <a href="https://wa.me/213699908979" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white p-3 rounded-xl flex flex-col items-center justify-center transition shadow">
+                            <i class="fa-brands fa-whatsapp text-2xl mb-1"></i>
+                            <span class="text-xs font-bold">WhatsApp</span>
+                        </a>
+                        <a href="#" onclick="showToast('Facebook')" class="bg-blue-700 hover:bg-blue-800 text-white p-3 rounded-xl flex flex-col items-center justify-center transition shadow">
+                            <i class="fa-brands fa-facebook-f text-2xl mb-1"></i>
+                            <span class="text-xs font-bold">Facebook</span>
+                        </a>
+                        <a href="#" onclick="showToast('Instagram')" class="bg-gradient-to-tr from-yellow-500 via-pink-600 to-purple-700 text-white p-3 rounded-xl flex flex-col items-center justify-center transition shadow">
+                            <i class="fa-brands fa-instagram text-2xl mb-1"></i>
+                            <span class="text-xs font-bold">Instagram</span>
+                        </a>
+                        <a href="#" onclick="showToast('TikTok')" class="bg-black hover:bg-gray-900 text-white p-3 rounded-xl flex flex-col items-center justify-center transition shadow">
+                            <i class="fa-brands fa-tiktok text-2xl mb-1"></i>
+                            <span class="text-xs font-bold">TikTok</span>
+                        </a>
+                    </div>
+
+                    <button onclick="sharePlatform()" class="w-full bg-alcazar-burgundy hover:bg-alcazar-lightburgundy text-white font-bold py-3 rounded-xl text-xs sm:text-sm border border-alcazar-gold/50 flex items-center justify-center transition">
+                        <i class="fa-solid fa-share-nodes mx-2 text-alcazar-gold"></i>
+                        <span data-i18n="btnShareApp">مشاركة منصة وتطبيق ألكازار</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/213699908979" target="_blank" class="fixed bottom-6 ltr:right-6 rtl:left-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition border-2 border-white pulse-gold" title="WhatsApp Business">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-alcazar-darkgreen text-white py-8 border-t-2 border-alcazar-gold">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
+            <div class="flex justify-center items-center space-x-3 rtl:space-x-reverse">
+                <div class="w-8 h-8 rounded-full bg-alcazar-gold text-alcazar-darkgreen flex items-center justify-center font-bold text-xs">
+                    👑
+                </div>
+                <span class="font-amiri font-bold text-lg text-alcazar-lightgold" data-i18n="footerBrand">ألكازار للتوابل الملكية والزيوت الطبيعية والطبية</span>
+            </div>
+            <p class="text-xs text-gray-400">
+                <span data-i18n="footerRights">جميع الحقوق محفوظة</span> © <span id="year"></span> | ALCAZAR - Boufateh Brahim
+            </p>
+            <p class="text-xs text-alcazar-gold/70 dir-ltr font-mono">
+                WhatsApp Business: +213 699 90 89 79
+            </p>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex justify-end">
+        <div class="w-full max-w-md bg-white h-full shadow-2xl flex flex-col justify-between border-l-4 border-alcazar-gold">
+            
+            <div class="bg-alcazar-green text-white p-4 flex items-center justify-between border-b border-alcazar-gold">
+                <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                    <i class="fa-solid fa-basket-shopping text-alcazar-gold text-xl"></i>
+                    <h3 class="font-bold text-lg" data-i18n="cartTitle">سلة الطلبات الملكية</h3>
+                </div>
+                <button onclick="toggleCartModal()" class="text-gray-300 hover:text-white text-2xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="cart-items" class="p-4 overflow-y-auto flex-1 divide-y divide-gray-100">
+                <!-- Injected JS -->
+            </div>
+
+            <div class="p-4 bg-alcazar-sand border-t border-gray-200 space-y-4">
+                <div class="flex justify-between items-center font-bold text-base text-alcazar-darkgreen">
+                    <span data-i18n="cartTotalLabel">المبلغ الإجمالي:</span>
+                    <span id="cart-total" class="text-xl text-alcazar-burgundy">0 DA</span>
+                </div>
+
+                <div class="space-y-2">
+                    <input type="text" id="cust-name" data-i18n-ph="phName" placeholder="الاسم الكامل" class="w-full text-xs p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-alcazar-gold">
+                    <input type="tel" id="cust-phone" data-i18n-ph="phPhone" placeholder="رقم الهاتف" class="w-full text-xs p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-alcazar-gold">
+                    <input type="text" id="cust-address" data-i18n-ph="phAddress" placeholder="البلد / المدينة والعنوان" class="w-full text-xs p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:border-alcazar-gold">
+                </div>
+
+                <button onclick="sendOrderToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-lg flex items-center justify-center transition">
+                    <i class="fa-brands fa-whatsapp text-xl mx-2"></i>
+                    <span data-i18n="btnSubmitOrder">إرسال الطلب عبر الواتساب (+213699908979)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 hidden bg-alcazar-burgundy text-white px-6 py-3 rounded-xl shadow-2xl border border-alcazar-gold text-sm font-bold items-center space-x-2 rtl:space-x-reverse">
+        <i class="fa-solid fa-circle-check text-alcazar-gold text-lg"></i>
+        <span id="toast-message">تمت العملية بنجاح</span>
+    </div>
+
+    <!-- JavaScript Translations & Application Engine -->
+    <script>
+        // Multilingual Dictionary
+        const translations = {
+            ar: {
+                dir: 'rtl',
+                topBarCraft: 'الجودة الملكية والحرفية الأصيلة',
+                topBarNatural: 'منتجات 100% طبيعية',
+                topBarDelivery: '🚚 التوصيل متوفر محلياً ودولياً عبر دول البحر المتوسط | للطلب المباشر:',
+                brandSubtitle: 'للتوابل الملكية والزيوت الطبيعية',
+                navHome: 'الرئيسية',
+                navProducts: 'الكتالوج والمنتجات',
+                navAbout: 'عن الحرفية والمؤسسة',
+                navContact: 'تواصل معنا',
+                btnDirectWhatsApp: 'طلب سريع عبر الواتساب',
+                heroBadge: 'إنتاج وتجهيز وتعليب حرفي فاخر ذات طابع ملكي',
+                heroTitle: 'مؤسسة ألكازار',
+                heroTitleSpan: 'للتوابل الملكية والزيوت الطبيعية',
+                heroDesc: 'بإشراف الأستاذ بوفاتح إبراهيم. نجمع بين أصالة التراث الأندلسي المغاربي والنقاء الطبيعي الخالص. نقدم لكم أجود التوابل الملكية المنتقاة بعناية والزيوت المعصورة على البارد لأغراض غذائية وتجميلية وطبية موجهة لزبائننا في دول حوض البحر الأبيض المتوسط والعالم.',
+                heroBtnExplore: 'استكشف المنتجات الملكية',
+                heroBtnWhatsApp: 'واتساب المبيعات المباشر',
+                badgePestle: 'طحن وتجهيز حرفي',
+                badgeCold: 'عصر على البارد 100%',
+                badgePackage: 'تعليب فاخر محكم',
+                brandCardSubtitle: 'التوابل الملكية والزيوت الطبيعية',
+                brandCardTag: 'طابع حرفي رفيع',
+                catSubtitle: 'كتالوج المنتجات الحرفية',
+                catTitle: 'مجموعاتنا الملكية المميزة',
+                filterAll: 'جميع المنتجات',
+                filterSpices: 'التوابل الملكية',
+                filterOils: 'الزيوت الطبيعية والطبية',
+                filterMixes: 'الخلطات الحرفية الخاصة',
+                aboutTag: 'أصالة الحرفة الجزائرية والمتوسطية',
+                aboutTitle: 'سر الجودة الملكية في مؤسسة ألكازار',
+                aboutDesc: 'تأسست مؤسسة ألكازار على يد الأستاذ بوفاتح إبراهيم لتكون الرائدة في إنتاج وتجهيز وتعبئة التوابل الفاخرة والزيوت المستخلصة بطرق حرفية تقليدية دون أي ألوان صناعية أو مواد حافظة.',
+                feat1Title: 'نقاء طبيعي 100%',
+                feat1Desc: 'نضمن لكم أعشاباً وزيوتاً طبية ناتجة عن معايير صارمة في الانتقاء والعصر الميكانيكي البارد.',
+                feat2Title: 'خلطات سرية ملكية',
+                feat2Desc: 'توابل محضرة بأنسب نسب الأعشاب العطرية التي تمنح أطباقكم نكهة أندلسية فريدة.',
+                feat3Title: 'توصيل موثوق عبر البحر المتوسط',
+                feat3Desc: 'نصلكم أينما كنتم مع إمكانية الطلب والمتابعة المباشرة عبر الواتساب بيزنس.',
+                ownerTitle: 'إشراف: أ. بوفاتح إبراهيم',
+                quoteText: '"نحرص في ألكازار على تقديم منتجات صحية فاخرة تعكس ذوق العائلات الرفيع وتلبي الاحتياجات التجميلية والطبية بأعلى مقاييس الحرفية."',
+                quoteSub: 'هل لديك طلب خاص أو شحنات بالجملة؟',
+                quoteWhatsAppBtn: 'مراسلة إدارة ألكازار مباشرة',
+                contactTitle: 'تواصل معنا وتابع جديد مؤسسة ألكازار',
+                contactDesc: 'نحن سعداء بخدمتكم في أي وقت. يمكنك التواصل المباشر عبر الهاتف، الواتساب بيزنس، أو متابعتنا عبر شبكات التواصل الاجتماعي.',
+                contactWA: 'واتساب بيزنس:',
+                contactManager: 'المدير المسؤول:',
+                contactLoc: 'الجزائر - الشحن متوفر لدول حوض البحر الأبيض المتوسط',
+                socialTitle: 'روابط شبكات التواصل الاجتماعي',
+                btnShareApp: 'مشاركة منصة وتطبيق ألكازار',
+                footerBrand: 'ألكازار للتوابل الملكية والزيوت الطبيعية والطبية',
+                footerRights: 'جميع الحقوق محفوظة',
+                cartTitle: 'سلة الطلبات الملكية',
+                cartTotalLabel: 'المبلغ الإجمالي:',
+                phName: 'الاسم الكامل',
+                phPhone: 'رقم الهاتف مع الرمز الدولي',
+                phAddress: 'البلد / المدينة والعنوان',
+                btnSubmitOrder: 'إرسال الطلب عبر الواتساب (+213699908979)',
+                currency: 'د.ج',
+                cartEmpty: 'سلة الطلبات فارغة حالياً',
+                addToCartBtn: 'إضافة للسلة',
+                directOrderBtn: 'طلب مباشر'
+            },
+            fr: {
+                dir: 'ltr',
+                topBarCraft: 'Qualité Royale et Artisanat Authentique',
+                topBarNatural: 'Produits 100% Naturels',
+                topBarDelivery: '🚚 Livraison locale & méditerranéenne | Commande directe:',
+                brandSubtitle: 'Épices Royales et Huiles Naturelles',
+                navHome: 'Accueil',
+                navProducts: 'Catalogue & Produits',
+                navAbout: 'À propos & Artisanat',
+                navContact: 'Contactez-nous',
+                btnDirectWhatsApp: 'Commande rapide WhatsApp',
+                heroBadge: 'Production et Conditionnement Artisanal Royal',
+                heroTitle: 'Maison ALCAZAR',
+                heroTitleSpan: 'Épices Royales & Huiles Naturelles',
+                heroDesc: 'Sous la direction de M. Boufateh Brahim. Nous allions l\'authenticité du patrimoine andalou-maghrébin à la pureté naturelle. Nous vous proposons les meilleures épices royales et huiles pressées à froid pour vos besoins culinaires, cosmétiques et médicinaux.',
+                heroBtnExplore: 'Explorer les Produits',
+                heroBtnWhatsApp: 'WhatsApp Ventes Directes',
+                badgePestle: 'Moulage Artisanal',
+                badgeCold: 'Pression à Froid 100%',
+                badgePackage: 'Emballage Fait Main',
+                brandCardSubtitle: 'Épices Royales & Huiles Naturelles',
+                brandCardTag: 'Haute Artisanat',
+                catSubtitle: 'Catalogue Artisanal',
+                catTitle: 'Nos Collections Royales',
+                filterAll: 'Tous les produits',
+                filterSpices: 'Épices Royales',
+                filterOils: 'Huiles Naturelles & Médicinales',
+                filterMixes: 'Mélanges Spéciaux Maison',
+                aboutTag: 'Authenticité Algérienne & Méditerranéenne',
+                aboutTitle: 'Le secret de la qualité royale ALCAZAR',
+                aboutDesc: 'Fondée par M. Boufateh Brahim, la Maison Alcazar est leader dans la production et le conditionnement d\'épices raffinées et d\'huiles extraites selon des méthodes artisanales sans conservateurs.',
+                feat1Title: 'Pureté 100% Naturelle',
+                feat1Desc: 'Des herbes et huiles médicinales obtenues grâce à une sélection rigoureuse et une extraction à froid.',
+                feat2Title: 'Recettes Royales Secrètes',
+                feat2Desc: 'Des mélanges d\'épices uniques offrant une saveur andalouse inégalée à vos plats.',
+                feat3Title: 'Livraison Méditerranéenne',
+                feat3Desc: 'Nous vous livrons partout avec suivi direct via WhatsApp Business.',
+                ownerTitle: 'Dirigé par: M. Boufateh Brahim',
+                quoteText: '"Chez Alcazar, nous veillons à fournir des produits sains et luxueux reflétant le goût raffiné de nos clients."',
+                quoteSub: 'Besoin d\'une commande spéciale ou en gros ?',
+                quoteWhatsAppBtn: 'Contacter la direction Alcazar',
+                contactTitle: 'Contactez-nous & Suivez ALCAZAR',
+                contactDesc: 'Nous sommes ravis de vous servir. Contactez-nous via téléphone, WhatsApp Business ou réseaux sociaux.',
+                contactWA: 'WhatsApp Business:',
+                contactManager: 'Directeur Général:',
+                contactLoc: 'Algérie - Expédition vers le bassin Méditerranéen',
+                socialTitle: 'Réseaux Sociaux',
+                btnShareApp: 'Partager la plateforme ALCAZAR',
+                footerBrand: 'ALCAZAR Épices Royales & Huiles Naturelles',
+                footerRights: 'Tous droits réservés',
+                cartTitle: 'Mon Panier Royal',
+                cartTotalLabel: 'Montant Total:',
+                phName: 'Nom et Prénom',
+                phPhone: 'Téléphone (avec indicatif)',
+                phAddress: 'Pays / Ville et Adresse',
+                btnSubmitOrder: 'Envoyer la commande via WhatsApp (+213699908979)',
+                currency: 'DA',
+                cartEmpty: 'Votre panier est actuellement vide',
+                addToCartBtn: 'Ajouter au panier',
+                directOrderBtn: 'Commande directe'
+            },
+            en: {
+                dir: 'ltr',
+                topBarCraft: 'Royal Quality & Authentic Craftsmanship',
+                topBarNatural: '100% Natural Products',
+                topBarDelivery: '🚚 Local & Mediterranean Delivery | Direct Order:',
+                brandSubtitle: 'Royal Spices & Natural Oils',
+                navHome: 'Home',
+                navProducts: 'Catalog & Products',
+                navAbout: 'About & Craftsmanship',
+                navContact: 'Contact Us',
+                btnDirectWhatsApp: 'Fast Order WhatsApp',
+                heroBadge: 'Royal Artisanal Production & Packaging',
+                heroTitle: 'ALCAZAR Establishment',
+                heroTitleSpan: 'Royal Spices & Natural Oils',
+                heroDesc: 'Supervised by Mr. Boufateh Brahim. Combining Andalusian-Maghrebi heritage with pure natural quality. We supply premium hand-selected royal spices and cold-pressed oils for culinary, cosmetic, and medicinal uses across the Mediterranean region and worldwide.',
+                heroBtnExplore: 'Explore Royal Products',
+                heroBtnWhatsApp: 'Direct Sales WhatsApp',
+                badgePestle: 'Artisanal Grinding',
+                badgeCold: '100% Cold Pressed',
+                badgePackage: 'Sealed Luxury Packaging',
+                brandCardSubtitle: 'Royal Spices & Natural Oils',
+                brandCardTag: 'Premium Craftsmanship',
+                catSubtitle: 'Artisanal Catalog',
+                catTitle: 'Our Signature Collections',
+                filterAll: 'All Products',
+                filterSpices: 'Royal Spices',
+                filterOils: 'Natural & Medicinal Oils',
+                filterMixes: 'House Special Blends',
+                aboutTag: 'Algerian & Mediterranean Heritage',
+                aboutTitle: 'The Secret of ALCAZAR Royal Quality',
+                aboutDesc: 'Founded by Mr. Boufateh Brahim, Alcazar is a pioneer in producing and packaging gourmet spices and natural oils using traditional methods free from artificial additives.',
+                feat1Title: '100% Pure & Natural',
+                feat1Desc: 'Strictly selected herbs and oils extracted mechanically with cold-press technology.',
+                feat2Title: 'Secret Royal Recipes',
+                feat2Desc: 'Masterfully blended spices providing an authentic Andalusian aroma to your meals.',
+                feat3Title: 'Mediterranean Shipping',
+                feat3Desc: 'Delivering to your doorstep with direct ordering and tracking via WhatsApp Business.',
+                ownerTitle: 'Directed by: Mr. Boufateh Brahim',
+                quoteText: '"At Alcazar, we guarantee healthy, luxurious products crafted to meet the highest standards of our international customers."',
+                quoteSub: 'Need wholesale or custom orders?',
+                quoteWhatsAppBtn: 'Contact Alcazar Management',
+                contactTitle: 'Connect with ALCAZAR',
+                contactDesc: 'We are pleased to serve you anytime via phone, WhatsApp Business, or our social platforms.',
+                contactWA: 'WhatsApp Business:',
+                contactManager: 'General Manager:',
+                contactLoc: 'Algeria - Shipping across the Mediterranean',
+                socialTitle: 'Social Networks',
+                btnShareApp: 'Share ALCAZAR Platform',
+                footerBrand: 'ALCAZAR Royal Spices & Natural Oils',
+                footerRights: 'All rights reserved',
+                cartTitle: 'Royal Shopping Cart',
+                cartTotalLabel: 'Total Amount:',
+                phName: 'Full Name',
+                phPhone: 'Phone (with country code)',
+                phAddress: 'Country / City & Address',
+                btnSubmitOrder: 'Send Order via WhatsApp (+213699908979)',
+                currency: 'DA',
+                cartEmpty: 'Your shopping cart is currently empty',
+                addToCartBtn: 'Add to Cart',
+                directOrderBtn: 'Direct Order'
+            },
+            es: {
+                dir: 'ltr',
+                topBarCraft: 'Calidad Real y Artesanía Auténtica',
+                topBarNatural: 'Productos 100% Naturales',
+                topBarDelivery: '🚚 Envíos locales y al Mediterráneo | Pedido directo:',
+                brandSubtitle: 'Especias Reales y Aceites Naturales',
+                navHome: 'Inicio',
+                navProducts: 'Catálogo y Productos',
+                navAbout: 'Sobre la Casa & Artesanía',
+                navContact: 'Contacto',
+                btnDirectWhatsApp: 'Pedido Rápido WhatsApp',
+                heroBadge: 'Producción y Empaque Artesanal de Lujo',
+                heroTitle: 'Casa ALCAZAR',
+                heroTitleSpan: 'Especias Reales y Aceites Naturales',
+                heroDesc: 'Bajo la dirección de D. Boufateh Brahim. Unimos la herencia andalusí-magrebí con la máxima pureza natural. Ofrecemos las mejores especias reales y aceites prensados en frío para uso culinario, cosmético y medicinal.',
+                heroBtnExplore: 'Explorar Productos',
+                heroBtnWhatsApp: 'WhatsApp Ventas Directas',
+                badgePestle: 'Molienda Artesanal',
+                badgeCold: 'Prensado en Frío 100%',
+                badgePackage: 'Empaque Sellado de Lujo',
+                brandCardSubtitle: 'Especias Reales y Aceites Naturales',
+                brandCardTag: 'Alta Artesanía',
+                catSubtitle: 'Catálogo Artesanal',
+                catTitle: 'Nuestras Colecciones Reales',
+                filterAll: 'Todos los Productos',
+                filterSpices: 'Especias Reales',
+                filterOils: 'Aceites Naturales y Medicinales',
+                filterMixes: 'Mezclas Especiales de la Casa',
+                aboutTag: 'Tradición Argelina y Mediterránea',
+                aboutTitle: 'El Secreto de la Calidad Real ALCAZAR',
+                aboutDesc: 'Fundada por D. Boufateh Brahim, Alcazar es líder en la elaboración y empaque de especias selectas y aceites naturales extraídos tradicionalmente sin conservantes.',
+                feat1Title: 'Pureza 100% Natural',
+                feat1Desc: 'Hierbas y aceites medicinales seleccionados mediante prensado mecánico en frío.',
+                feat2Title: 'Fórmulas Reales Secretas',
+                feat2Desc: 'Mezclas exclusivas que aportan un sabor andalusí único a sus platos.',
+                feat3Title: 'Envío por todo el Mediterráneo',
+                feat3Desc: 'Entregamos en su domicilio con atención personalizada vía WhatsApp Business.',
+                ownerTitle: 'Dirección: D. Boufateh Brahim',
+                quoteText: '"En Alcazar ofrecemos productos saludables y de lujo que reflejan la excelencia y el buen gusto de nuestros clientes."',
+                quoteSub: '¿Desea pedidos al por mayor o personalizados?',
+                quoteWhatsAppBtn: 'Contactar Dirección Alcazar',
+                contactTitle: 'Contacte con ALCAZAR',
+                contactDesc: 'Estamos a su servicio. Contacte con nosotros por teléfono, WhatsApp Business o redes sociales.',
+                contactWA: 'WhatsApp Business:',
+                contactManager: 'Director General:',
+                contactLoc: 'Argelia - Envíos a todo el Mediterráneo',
+                socialTitle: 'Redes Sociales',
+                btnShareApp: 'Compartir Plataforma ALCAZAR',
+                footerBrand: 'ALCAZAR Especias Reales y Aceites Naturales',
+                footerRights: 'Todos los derechos reservados',
+                cartTitle: 'Cesta Real de Compras',
+                cartTotalLabel: 'Monto Total:',
+                phName: 'Nombre Completo',
+                phPhone: 'Teléfono (con prefijo internacional)',
+                phAddress: 'País / Ciudad y Dirección',
+                btnSubmitOrder: 'Enviar Pedido por WhatsApp (+213699908979)',
+                currency: 'DA',
+                cartEmpty: 'Su cesta está vacía',
+                addToCartBtn: 'Añadir a la Cesta',
+                directOrderBtn: 'Pedido Directo'
+            }
+        };
+
+        // Products Catalog Data in 4 Languages
+        const productsData = [
+            {
+                id: 1,
+                category: 'spices',
+                price: 2500,
+                icon: 'fa-crown',
+                iconColor: 'text-amber-500',
+                badge: { ar: 'الأكثر طلباً', fr: 'Le plus vendu', en: 'Best Seller', es: 'Más Vendido' },
+                name: {
+                    ar: 'زعفران حر ملكي فاخر',
+                    fr: 'Safran Pur Royal Supérieur',
+                    en: 'Royal Pure Pure Saffron',
+                    es: 'Azafrán Puro Real Superior'
+                },
+                unit: { ar: 'جرام غرامة', fr: 'Gramme pur', en: 'Pure gram', es: 'Gramo puro' },
+                desc: {
+                    ar: 'زعفران أصيل مئة بالمئة ذو نكهة ولون ملكي زكي، محصود بعناية فائقة.',
+                    fr: 'Safran 100% authentique avec une saveur et une couleur royales.',
+                    en: '100% authentic saffron with rich royal color and exquisite aroma.',
+                    es: 'Azafrán 100% auténtico con un color y aroma real exquisito.'
+                }
+            },
+            {
+                id: 2,
+                category: 'mixes',
+                price: 850,
+                icon: 'fa-wand-magic-sparkles',
+                iconColor: 'text-alcazar-gold',
+                badge: { ar: 'خاص بألكازار', fr: 'Exclusivité Alcazar', en: 'Alcazar Exclusive', es: 'Exclusivo Alcazar' },
+                name: {
+                    ar: 'خلطة ألكازار الملكية للتوابل',
+                    fr: 'Mélange Épices Royal Alcazar',
+                    en: 'Alcazar Royal Spice Blend',
+                    es: 'Mezcla Real de Especias Alcazar'
+                },
+                unit: { ar: 'علبة 250غ', fr: 'Boîte 250g', en: 'Box 250g', es: 'Caja 250g' },
+                desc: {
+                    ar: 'خلطة سرية حرفية من 14 عشبة وتوابل ملكية منتقاة لأفخر الأطباق.',
+                    fr: 'Recette secrète de 14 herbes et épices royales pour vos grands plats.',
+                    en: 'Secret recipe combining 14 royal herbs and spices for gourmet dishes.',
+                    es: 'Receta secreta de 14 hierbas y especias reales para platos gourmet.'
+                }
+            },
+            {
+                id: 3,
+                category: 'oils',
+                price: 1800,
+                icon: 'fa-droplet',
+                iconColor: 'text-emerald-600',
+                badge: { ar: 'عصر على البارد', fr: 'Pression à froid', en: 'Cold Pressed', es: 'Prensado en Frío' },
+                name: {
+                    ar: 'زيت الأرغان الطبيعي البكر',
+                    fr: 'Huile d\'Argan Pure Vierge',
+                    en: 'Pure Virgin Argan Oil',
+                    es: 'Aceite de Argán Virgen Puro'
+                },
+                unit: { ar: 'قارورة 100مل', fr: 'Flacon 100ml', en: 'Bottle 100ml', es: 'Botella 100ml' },
+                desc: {
+                    ar: 'معصور على البارد للاستخدام الغذائي والتجميلي، غني بـ الفيتامين E.',
+                    fr: 'Pressée à froid pour usages culinaire et cosmétique, riche en Vitamine E.',
+                    en: 'Cold-pressed for culinary and cosmetic use, rich in Vitamin E.',
+                    es: 'Prensado en frío para uso culinario y cosmético, rico en Vitamina E.'
+                }
+            },
+            {
+                id: 4,
+                category: 'oils',
+                price: 1400,
+                icon: 'fa-bottle-droplet',
+                iconColor: 'text-gray-800',
+                badge: { ar: 'طبي وصحي', fr: 'Médicinal & Santé', en: 'Health & Medicinal', es: 'Salud y Medicinal' },
+                name: {
+                    ar: 'زيت الحبة السوداء الطبيعي',
+                    fr: 'Huile de Nigelle Pure (Habbat Al Baraka)',
+                    en: 'Pure Black Seed Oil (Nigella)',
+                    es: 'Aceite de Semilla Negra (Nigella)'
+                },
+                unit: { ar: 'قارورة 125مل', fr: 'Flacon 125ml', en: 'Bottle 125ml', es: 'Botella 125ml' },
+                desc: {
+                    ar: 'زيت طبيعي علاج وطبي مركز مستخلص حرفياً من أجود حبوب البركة.',
+                    fr: 'Huile thérapeutique concentrée extraite artisanalement de graines de nigelle.',
+                    en: 'Concentrated therapeutic oil artisanally extracted from premium black seeds.',
+                    es: 'Aceite terapéutico concentrado extraído artesanalmente de semillas de nigella.'
+                }
+            },
+            {
+                id: 5,
+                category: 'spices',
+                price: 650,
+                icon: 'fa-leaf',
+                iconColor: 'text-amber-700',
+                badge: { ar: 'طبيعي 100%', fr: '100% Naturel', en: '100% Natural', es: '100% Natural' },
+                name: {
+                    ar: 'دارسين عود ملكي (قرفة فاخرة)',
+                    fr: 'Bâtons de Cannelle Royale',
+                    en: 'Royal Cinnamon Sticks',
+                    es: 'Canela Real en Rama'
+                },
+                unit: { ar: 'ربطة 200غ', fr: 'Paquet 200g', en: 'Pack 200g', es: 'Paquete 200g' },
+                desc: {
+                    ar: 'قرفة فاخرة رائحة نفاذة وطعم حلو مميز وخالٍ من الإضافات.',
+                    fr: 'Cannelle de haute qualité au parfum intense et goût naturellement doux.',
+                    en: 'Premium cinnamon sticks with rich aroma and natural sweetness.',
+                    es: 'Canela de alta calidad con intenso aroma y dulzura natural.'
+                }
+            },
+            {
+                id: 6,
+                category: 'oils',
+                price: 1200,
+                icon: 'fa-heart',
+                iconColor: 'text-pink-600',
+                badge: { ar: 'تجميلي فاخر', fr: 'Cosmétique Luxe', en: 'Luxury Cosmetic', es: 'Cosmética de Lujo' },
+                name: {
+                    ar: 'زيت اللوز الحلو الطبيعي',
+                    fr: 'Huile d\'Amande Douce Pure',
+                    en: 'Pure Sweet Almond Oil',
+                    es: 'Aceite de Almendras Dulces'
+                },
+                unit: { ar: 'قارورة 100مل', fr: 'Flacon 100ml', en: 'Bottle 100ml', es: 'Botella 100ml' },
+                desc: {
+                    ar: 'نقي ومثالي للعناية بالبشرة والشعر، معصور بالطرق التقليدية الحرفية.',
+                    fr: 'Idéal pour le soin de la peau et des cheveux, pressé traditionnellement.',
+                    en: 'Pure oil ideal for skin and hair care, artisanally extracted.',
+                    es: 'Aceite puro ideal para la piel y el cabello, extraído artesanalmente.'
+                }
+            },
+            {
+                id: 7,
+                category: 'mixes',
+                price: 1100,
+                icon: 'fa-utensils',
+                iconColor: 'text-red-600',
+                badge: { ar: 'عرض خاص', fr: 'Offre Spéciale', en: 'Special Offer', es: 'Oferta Especial' },
+                name: {
+                    ar: 'مجموعة التوابل الأندلسية للشوربة',
+                    fr: 'Coffret Épices Andalouses pour Soupe',
+                    en: 'Andalusian Soup Spice Set',
+                    es: 'Set de Especias Andaluzas para Sopa'
+                },
+                unit: { ar: 'طقم 3 علب', fr: 'Set 3 Boîtes', en: 'Set 3 Boxes', es: 'Set 3 Cajas' },
+                desc: {
+                    ar: 'تشكيلة متوازنة تمنح الشوربة والأطباق الجزائرية طعماً أصيلاً.',
+                    fr: 'Assortiment équilibré apportant une saveur andalouse unique à vos soupes.',
+                    en: 'Balanced blend giving your soups an authentic Mediterranean-Andalusian taste.',
+                    es: 'Mezcla equilibrada que otorga un sabor andalusí único a sus sopas.'
+                }
+            },
+            {
+                id: 8,
+                category: 'oils',
+                price: 4500,
+                icon: 'fa-gem',
+                iconColor: 'text-purple-600',
+                badge: { ar: 'درجة أولى', fr: 'Qualité Prémium', en: 'Premium Grade', es: 'Grado Premium' },
+                name: {
+                    ar: 'زيت التين الشوكي الفاخر',
+                    fr: 'Huile de Pépins de Figue de Barbarie',
+                    en: 'Prickly Pear Seed Oil',
+                    es: 'Aceite de Semillas de Higo Chumbo'
+                },
+                unit: { ar: 'قارورة 30مل', fr: 'Flacon 30ml', en: 'Bottle 30ml', es: 'Botella 30ml' },
+                desc: {
+                    ar: 'إكسير الشباب الطبيعي، معصور بحرفية عالية جداً ومحفوظ بعناية.',
+                    fr: 'Elixir anti-âge naturel, hautement concentré et extrêmement précieux.',
+                    en: 'Natural anti-aging elixir, highly concentrated and carefully preserved.',
+                    es: 'Elixir antiedad natural, altamente concentrado y preservado con cuidado.'
+                }
+            }
+        ];
+
+        let currentLang = 'ar';
+        let currentCategory = 'all';
+        let cart = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('year').innerText = new Date().getFullYear();
+            applyLanguage('ar');
+        });
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            applyLanguage(lang);
+        }
+
+        function applyLanguage(lang) {
+            const t = translations[lang];
+            document.documentElement.lang = lang;
+            document.documentElement.dir = t.dir;
+
+            // Translate all elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.innerText = t[key];
+                }
+            });
+
+            // Translate placeholders
+            document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+                const key = el.getAttribute('data-i18n-ph');
+                if (t[key]) {
+                    el.placeholder = t[key];
+                }
+            });
+
+            // Re-render Products & Cart
+            renderProducts();
+            updateCartUI();
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+
+            const t = translations[currentLang];
+            const filtered = currentCategory === 'all' 
+                ? productsData 
+                : productsData.filter(p => p.category === currentCategory);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<p class="col-span-full text-center text-gray-500 py-8">${t.cartEmpty}</p>`;
+                return;
+            }
+
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between group relative border-t-4 border-t-alcazar-gold";
+                
+                const pName = p.name[currentLang] || p.name['ar'];
+                const pDesc = p.desc[currentLang] || p.desc['ar'];
+                const pUnit = p.unit[currentLang] || p.unit['ar'];
+                const pBadge = p.badge[currentLang] || p.badge['ar'];
+
+                card.innerHTML = `
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="bg-alcazar-sand text-alcazar-darkgreen text-xs font-bold px-2.5 py-1 rounded-md border border-alcazar-gold/30">
+                                ${pBadge}
+                            </span>
+                            <div class="w-10 h-10 rounded-full bg-alcazar-sand flex items-center justify-center ${p.iconColor}">
+                                <i class="fa-solid ${p.icon} text-lg"></i>
+                            </div>
+                        </div>
+
+                        <h3 class="font-bold text-lg text-alcazar-darkgreen mb-1 group-hover:text-alcazar-burgundy transition">
+                            ${pName}
+                        </h3>
+                        <p class="text-xs text-gray-500 mb-3">${pUnit}</p>
+                        <p class="text-xs text-gray-600 leading-relaxed mb-4">
+                            ${pDesc}
+                        </p>
+                    </div>
+
+                    <div class="p-5 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 block">${t.cartTotalLabel}</span>
+                            <span class="text-lg font-bold text-alcazar-burgundy">${p.price} <span class="text-xs font-normal">${t.currency}</span></span>
+                        </div>
+                        
+                        <div class="flex space-x-2 rtl:space-x-reverse">
+                            <button onclick="addToCart(${p.id})" class="bg-alcazar-green hover:bg-alcazar-darkgreen text-alcazar-gold p-2.5 rounded-xl text-sm transition font-bold" title="${t.addToCartBtn}">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                            <a href="https://wa.me/213699908979?text=${encodeURIComponent(`Order / الطلب: ${pName} (${p.price} ${t.currency})`)}" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white p-2.5 rounded-xl text-sm transition font-bold flex items-center" title="${t.directOrderBtn}">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('bg-alcazar-green', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-700');
+            });
+
+            const activeBtn = document.getElementById(`tab-${cat}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-gray-700');
+                activeBtn.classList.add('bg-alcazar-green', 'text-white');
+            }
+            renderProducts();
+        }
+
+        function addToCart(productId) {
+            const product = productsData.find(p => p.id === productId);
+            const existing = cart.find(item => item.id === productId);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+            const t = translations[currentLang];
+            showToast(`${t.addToCartBtn}: ${product.name[currentLang] || product.name['ar']}`);
+        }
+
+        function changeQuantity(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (!item) return;
+
+            item.quantity += delta;
+            if (item.quantity <= 0) {
+                cart = cart.filter(i => i.id !== id);
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const t = translations[currentLang];
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            const totalItems = cart.reduce((sum, i) => sum + i.quantity, 0);
+            cartCount.innerText = totalItems;
+
+            const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+            cartTotal.innerText = `${totalPrice} ${t.currency}`;
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="text-center py-12 text-gray-400">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-3"></i>
+                        <p class="text-sm">${t.cartEmpty}</p>
+                    </div>
+                `;
+                return;
+            }
+
+            cartItems.innerHTML = '';
+            cart.forEach(item => {
+                const itemEl = document.createElement('div');
+                itemEl.className = "py-3 flex items-center justify-between";
+                const pName = item.name[currentLang] || item.name['ar'];
+
+                itemEl.innerHTML = `
+                    <div>
+                        <h4 class="font-bold text-sm text-alcazar-darkgreen">${pName}</h4>
+                        <span class="text-xs text-alcazar-burgundy font-bold">${item.price} ${t.currency}</span>
+                    </div>
+                    <div class="flex items-center space-x-2 rtl:space-x-reverse bg-gray-100 rounded-lg p-1">
+                        <button onclick="changeQuantity(${item.id}, -1)" class="w-6 h-6 bg-white rounded text-gray-700 font-bold shadow text-xs flex items-center justify-center">-</button>
+                        <span class="text-xs font-bold px-2">${item.quantity}</span>
+                        <button onclick="changeQuantity(${item.id}, 1)" class="w-6 h-6 bg-white rounded text-gray-700 font-bold shadow text-xs flex items-center justify-center">+</button>
+                    </div>
+                `;
+                cartItems.appendChild(itemEl);
+            });
+        }
+
+        function toggleCartModal() {
+            document.getElementById('cart-modal').classList.toggle('hidden');
+        }
+
+        function sendOrderToWhatsApp() {
+            const t = translations[currentLang];
+            if (cart.length === 0) {
+                showToast(t.cartEmpty);
+                return;
+            }
+
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+
+            if (!name || !phone) {
+                showToast(t.phName + " & " + t.phPhone);
+                return;
+            }
+
+            let orderText = `*${t.cartTitle} - ALCAZAR*%0A`;
+            orderText += `----------------------------------%0A`;
+            orderText += `👤 *Customer / العميل:* ${encodeURIComponent(name)}%0A`;
+            orderText += `📞 *Phone / الهاتف:* ${encodeURIComponent(phone)}%0A`;
+            if(address) orderText += `📍 *Address / العنوان:* ${encodeURIComponent(address)}%0A`;
+            orderText += `🌐 *Language:* ${currentLang.toUpperCase()}%0A`;
+            orderText += `----------------------------------%0A`;
+            orderText += `📦 *Products / المنتجات:*%0A`;
+
+            let totalPrice = 0;
+            cart.forEach((item, index) => {
+                const sub = item.price * item.quantity;
+                totalPrice += sub;
+                const pName = item.name[currentLang] || item.name['ar'];
+                orderText += `${index + 1}. ${encodeURIComponent(pName)} (x${item.quantity}) = ${sub} ${t.currency}%0A`;
+            });
+
+            orderText += `----------------------------------%0A`;
+            orderText += `💰 *Total / المجموع:* ${totalPrice} ${t.currency}%0A`;
+
+            const whatsappUrl = `https://wa.me/213699908979?text=${orderText}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function scrollToSection(id) {
+            const sec = document.getElementById(id);
+            if(sec) sec.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function sharePlatform() {
+            const title = "ALCAZAR Royal Spices & Oils";
+            const url = window.location.href;
+
+            if (navigator.share) {
+                navigator.share({ title, url }).catch(() => {});
+            } else {
+                const dummy = document.createElement('input');
+                document.body.appendChild(dummy);
+                dummy.value = url;
+                dummy.select();
+                document.execCommand('copy');
+                document.body.removeChild(dummy);
+                showToast("URL Copied!");
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = msg;
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
